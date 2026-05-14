@@ -25,6 +25,38 @@
         body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background: #f0f0f2; overflow: hidden; }
         #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 
+        /* NOUVEAU BANDEAU TITRE */
+        #top-branding {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .brand-bubble {
+            background: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-weight: 900;
+            color: var(--lumy-violet);
+            font-size: 18px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .beta-bubble {
+            background: black;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
         /* MODAL BIENVENUE */
         #lumy-welcome {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -65,7 +97,7 @@
         .user-arrow { display: none; width: 0; height: 0; border-left: 18px solid transparent; border-right: 18px solid transparent; border-bottom: 40px solid var(--lumy-violet); filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
         @keyframes pulse { 0% { transform: scale(0.8); opacity: 0.8; } 100% { transform: scale(2.5); opacity: 0; } }
         
-        .search-container { position: absolute; top: 20px; left: 20px; z-index: 100; width: 380px; }
+        .search-container { position: absolute; top: 85px; left: 20px; z-index: 100; width: 380px; }
         .glass-box { background: var(--bg-glass); backdrop-filter: blur(20px); border-radius: 24px; border: 1px solid rgba(255,255,255,1); box-shadow: 0 10px 40px rgba(0,0,0,0.12); padding: 14px 22px; }
         #search-mode-route { display: none; flex-direction: column; gap: 10px; }
         .input-row { display: flex; align-items: center; gap: 15px; }
@@ -80,7 +112,7 @@
         
         .active-nav #drive-header { top: 0; }
         .active-nav #drive-footer { bottom: 0; }
-        .active-nav .search-container, .active-nav .geo-btn, .active-nav #go-nav-btn { display: none !important; }
+        .active-nav .search-container, .active-nav .geo-btn, .active-nav #go-nav-btn, .active-nav #top-branding { display: none !important; }
         
         #sugg-list { background: white; list-style: none; padding: 10px 0; margin: 10px 0 0 0; border-radius: 20px; max-height: 280px; overflow-y: auto; box-shadow: 0 15px 40px rgba(0,0,0,0.15); display: none; }
         #sugg-list li { padding: 16px 25px; cursor: pointer; border-bottom: 1px solid #f8f8f8; font-weight: 500; }
@@ -94,6 +126,11 @@
     </style>
 </head>
 <body id="main-body">
+
+<div id="top-branding">
+    <div class="brand-bubble">Lumy Maps</div>
+    <div class="beta-bubble">BETA</div>
+</div>
 
 <div id="lumy-welcome">
     <div class="welcome-card">
@@ -210,9 +247,8 @@
         const distKm = route.distance / 1000;
         const durationSec = route.duration;
         
-        // --- CALCULS PRÉCIS ---
         const fCost = (distKm * currentVehicle.conso / 100) * currentVehicle.prixEssence;
-        const tollCost = distKm > 20 ? (distKm * 0.075) : 0; // Estimation péage : 0.075€/km si > 20km
+        const tollCost = distKm > 20 ? (distKm * 0.075) : 0; 
         const total = fCost + tollCost;
 
         document.getElementById('budget-panel').style.display = 'block';
