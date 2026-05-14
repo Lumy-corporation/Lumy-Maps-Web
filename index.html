@@ -40,7 +40,6 @@
         .recruit-zone { margin: 20px 0; padding: 20px; background: #f8f4ff; border-radius: 24px; border: 2px solid #eee; }
         .recruit-zone b { color: var(--lumy-violet); font-size: 18px; display: block; margin-bottom: 15px; }
         
-        /* FIX ICONES */
         .comp-icons { display: flex; justify-content: center; gap: 30px; margin: 15px 0; }
         .app-box { display: flex; flex-direction: column; align-items: center; gap: 8px; }
         .app-box img { width: 45px; height: 45px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
@@ -59,32 +58,39 @@
         }
         .btn-accept:hover { transform: scale(1.02); background: var(--lumy-light); }
 
-        /* STYLE GPS (Ton design original) */
+        /* STYLE GPS */
         .user-pos-container { display: flex; align-items: center; justify-content: center; }
         .user-dot { width: 22px; height: 22px; background: var(--lumy-violet); border: 4px solid white; border-radius: 50%; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.5); }
         .user-halo { position: absolute; width: 50px; height: 50px; background: rgba(138, 43, 226, 0.2); border-radius: 50%; animation: pulse 2s infinite; }
         .user-arrow { display: none; width: 0; height: 0; border-left: 18px solid transparent; border-right: 18px solid transparent; border-bottom: 40px solid var(--lumy-violet); filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
         @keyframes pulse { 0% { transform: scale(0.8); opacity: 0.8; } 100% { transform: scale(2.5); opacity: 0; } }
+        
         .search-container { position: absolute; top: 20px; left: 20px; z-index: 100; width: 380px; }
         .glass-box { background: var(--bg-glass); backdrop-filter: blur(20px); border-radius: 24px; border: 1px solid rgba(255,255,255,1); box-shadow: 0 10px 40px rgba(0,0,0,0.12); padding: 14px 22px; }
         #search-mode-route { display: none; flex-direction: column; gap: 10px; }
         .input-row { display: flex; align-items: center; gap: 15px; }
         input { flex: 1; background: transparent; border: none; font-size: 17px; outline: none; padding: 12px 0; color: #1d1d1f; font-weight: 600; }
+        
         #budget-panel { display: none; background: white; margin-top: 15px; border-radius: 24px; padding: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); }
         .vehicle-badge { background: #f4ebff; color: var(--lumy-violet); padding: 6px 12px; border-radius: 12px; font-size: 11px; font-weight: 800; margin-bottom: 15px; display: inline-block; text-transform: uppercase; }
         .budget-total { border-top: 2px solid #f8f8f8; margin-top: 15px; padding-top: 15px; font-weight: 900; color: var(--lumy-violet); font-size: 24px; display: flex; justify-content: space-between; }
+        
         #drive-header { position: absolute; top: -160px; left: 0; right: 0; height: 120px; background: #ffffff; color: #1d1d1f; z-index: 2000; display: flex; align-items: center; padding: 0 30px; transition: 0.7s cubic-bezier(0.19, 1, 0.22, 1); border-bottom: 4px solid var(--lumy-violet); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         #drive-footer { position: absolute; bottom: -160px; left: 0; right: 0; height: 120px; background: white; z-index: 2000; display: flex; justify-content: space-around; align-items: center; transition: 0.7s cubic-bezier(0.19, 1, 0.22, 1); box-shadow: 0 -10px 30px rgba(0,0,0,0.1); }
+        
         .active-nav #drive-header { top: 0; }
         .active-nav #drive-footer { bottom: 0; }
         .active-nav .search-container, .active-nav .geo-btn, .active-nav #go-nav-btn { display: none !important; }
+        
         #sugg-list { background: white; list-style: none; padding: 10px 0; margin: 10px 0 0 0; border-radius: 20px; max-height: 280px; overflow-y: auto; box-shadow: 0 15px 40px rgba(0,0,0,0.15); display: none; }
         #sugg-list li { padding: 16px 25px; cursor: pointer; border-bottom: 1px solid #f8f8f8; font-weight: 500; }
         #sugg-list li:hover { background: #f4ebff; color: var(--lumy-violet); }
-        #go-nav-btn { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%) scale(0); z-index: 500; padding: 22px 70px; background: var(--lumy-violet); color: white; border-radius: 60px; font-weight: 900; border: none; transition: 0.5s; font-size: 19px; }
+        
+        #go-nav-btn { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%) scale(0); z-index: 500; padding: 22px 70px; background: var(--lumy-violet); color: white; border-radius: 60px; font-weight: 900; border: none; transition: 0.5s; font-size: 19px; cursor: pointer;}
         #go-nav-btn.show { transform: translateX(-50%) scale(1); }
+        
         .geo-btn { position: absolute; bottom: 40px; right: 25px; width: 65px; height: 65px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 100; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.1); font-size: 26px; }
-        .exit-btn { background: #ff3b30; color: white; border: none; padding: 18px 30px; border-radius: 20px; font-weight: 800; font-size: 16px; }
+        .exit-btn { background: #ff3b30; color: white; border: none; padding: 18px 30px; border-radius: 20px; font-weight: 800; font-size: 16px; cursor: pointer; }
     </style>
 </head>
 <body id="main-body">
@@ -92,24 +98,14 @@
 <div id="lumy-welcome">
     <div class="welcome-card">
         <h1>LUMY MAPS</h1>
-        <p>En continuant, vous acceptez nos conditions et aidez la communauté à grandir.</p>
-        
         <div class="recruit-zone">
             <b>🚀 OBJECTIF : DÉTRÔNER</b>
             <div class="comp-icons">
-                <div class="app-box">
-                    <img src="https://cdn-icons-png.flaticon.com/512/355/355980.png" alt="Google Maps">
-                    <span>Google</span>
-                </div>
-                <div class="app-box">
-                    <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="Apple Maps">
-                    <span>Apple</span>
-                </div>
+                <div class="app-box"><img src="https://cdn-icons-png.flaticon.com/512/355/355980.png" alt="Google"><span>Google</span></div>
+                <div class="app-box"><img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="Apple"><span>Apple</span></div>
             </div>
-            <p style="font-size: 14px; margin-top: 15px;">Nous recrutons des talents pour bâtir l'alternative.</p>
             <a href="mailto:recrutement@lumycorp.com" class="mail-link">📧 recrutement@lumycorp.com</a>
         </div>
-
         <button class="btn-accept" onclick="closeWelcome()">J'ACCEPTE & JE COMMENCE</button>
     </div>
 </div>
@@ -120,40 +116,29 @@
     <div style="font-size: 50px; margin-right: 25px; color: var(--lumy-violet); font-weight: bold;">↑</div>
     <div>
         <div style="font-size: 28px; font-weight: 900; letter-spacing: -1px; color: #1d1d1f;" id="nav-text">Navigation</div>
-        <div style="font-size: 14px; color: #888; font-weight: 600; text-transform: uppercase;" id="nav-info">Moteur LUMY actif</div>
+        <div style="font-size: 14px; color: #888; font-weight: 600; text-transform: uppercase;">Moteur LUMY actif</div>
     </div>
 </div>
 
 <div id="drive-footer">
-    <div style="text-align:center"><div id="nav-time" style="font-size:28px; font-weight:900; color:#1d1d1f;">--:--</div><div style="font-size:12px; color:#999; font-weight:800;">ARRIVÉE</div></div>
-    <div style="text-align:center"><div id="nav-dist" style="font-size:28px; font-weight:900; color:#1d1d1f;">-- km</div><div style="font-size:12px; color:#999; font-weight:800;">DISTANCE</div></div>
+    <div style="text-align:center"><div id="nav-time" style="font-size:28px; font-weight:900;">--:--</div><div style="font-size:12px; color:#999; font-weight:800;">ARRIVÉE</div></div>
+    <div style="text-align:center"><div id="nav-dist" style="font-size:28px; font-weight:900;">-- km</div><div style="font-size:12px; color:#999; font-weight:800;">DISTANCE</div></div>
     <button class="exit-btn" onclick="stopGuidance()">QUITTER</button>
 </div>
 
 <div class="search-container">
     <div class="glass-box">
-        <div id="search-mode-simple">
-            <span style="font-size: 20px; margin-right:10px;">🔍</span>
-            <input type="text" id="inp-main" placeholder="Destination..." autocomplete="off">
-        </div>
+        <div id="search-mode-simple">🔍 <input type="text" id="inp-main" placeholder="Destination..." autocomplete="off"></div>
         <div id="search-mode-route">
-            <div class="input-row"><span onclick="location.reload()" style="cursor:pointer; font-size: 20px;">🔙</span><input type="text" id="inp-start" placeholder="Point de départ"></div>
-            <div style="height:1px; background:rgba(0,0,0,0.06); margin: 5px 0;"></div>
-            <div class="input-row"><span style="font-size: 20px;">📍</span><input type="text" id="inp-end" placeholder="Destination"></div>
+            <div class="input-row">🔙 <input type="text" id="inp-start" placeholder="Départ"></div>
+            <div class="input-row">📍 <input type="text" id="inp-end" placeholder="Arrivée"></div>
         </div>
     </div>
-
     <div id="budget-panel">
         <div class="vehicle-badge">⚡ ANALYSE : <span id="v-name">--</span></div>
-        <div style="display:flex; justify-content: space-between; margin-bottom: 12px; font-size: 16px; color: #444;">
-            <span>Consommation</span><b id="fuel-cost">--</b>
-        </div>
-        <div id="toll-row" style="display:flex; justify-content: space-between; margin-bottom: 12px; font-size: 16px; color: #444;">
-            <span>Frais route</span><b id="toll-cost">--</b>
-        </div>
-        <div class="budget-total">
-            <span>COÛT TRAJET</span><span id="total-cost">--</span>
-        </div>
+        <div style="display:flex; justify-content: space-between; margin-bottom: 8px;"><span>Carburant (1.85€/L)</span><b id="fuel-cost">--</b></div>
+        <div style="display:flex; justify-content: space-between; margin-bottom: 8px;"><span>Péages estimés</span><b id="toll-cost">--</b></div>
+        <div class="budget-total"><span>TOTAL</span><span id="total-cost">--</span></div>
     </div>
     <ul id="sugg-list"></ul>
 </div>
@@ -162,7 +147,7 @@
 <div class="geo-btn" onclick="locateMe()">🎯</div>
 
 <script>
-    const currentVehicle = { name: "Peugeot 208", conso: 5.4, prix: 1.89 };
+    const currentVehicle = { name: "Peugeot 208", conso: 5.4, prixEssence: 1.85 };
     const map = new maplibregl.Map({
         container: 'map',
         style: 'https://tiles.openfreemap.org/styles/liberty', 
@@ -170,23 +155,19 @@
         zoom: 12
     });
 
-    let pStart = null, pEnd = null, currentRoute = null;
+    let pStart = null, pEnd = null;
     const userMarkerEl = document.createElement('div');
     userMarkerEl.className = 'user-pos-container';
     userMarkerEl.innerHTML = '<div class="user-halo"></div><div class="user-dot"></div><div class="user-arrow"></div>';
     const marker = new maplibregl.Marker({ element: userMarkerEl }).setLngLat([0,0]).addTo(map);
 
-    function closeWelcome() {
-        if(typeof gtag === 'function') gtag('event', 'accepted_lumy');
-        document.getElementById('lumy-welcome').style.display = 'none';
-        locateMe();
-    }
+    function closeWelcome() { document.getElementById('lumy-welcome').style.display = 'none'; locateMe(); }
 
     function locateMe() {
         navigator.geolocation.getCurrentPosition(pos => {
             pStart = [pos.coords.longitude, pos.coords.latitude];
             marker.setLngLat(pStart);
-            map.flyTo({ center: pStart, zoom: 16 });
+            map.flyTo({ center: pStart, zoom: 15 });
         });
     }
 
@@ -201,16 +182,15 @@
             sList.innerHTML = ''; sList.style.display = 'block';
             data.features.forEach(f => {
                 const li = document.createElement('li');
-                li.innerHTML = `<b>${f.properties.name || ''}</b> <br><small style="color:#888">${f.properties.city || ''}</small>`;
+                li.innerHTML = `<b>${f.properties.name || f.properties.city}</b>`;
                 li.onclick = () => {
-                    const name = f.properties.name || f.properties.city;
-                    inp.value = name;
+                    inp.value = f.properties.name || f.properties.city;
                     sList.style.display = 'none';
                     if(id === 'inp-main') { 
                         pEnd = f.geometry.coordinates;
                         document.getElementById('search-mode-simple').style.display = 'none';
                         document.getElementById('search-mode-route').style.display = 'flex';
-                        document.getElementById('inp-end').value = name;
+                        document.getElementById('inp-end').value = inp.value;
                         document.getElementById('inp-start').value = "Ma position";
                         calculateRoute();
                     } else if(id === 'inp-start') { pStart = f.geometry.coordinates; if(pEnd) calculateRoute(); }
@@ -225,20 +205,30 @@
         if(!pStart || !pEnd) return;
         const res = await fetch(`https://router.project-osrm.org/route/v1/driving/${pStart[0]},${pStart[1]};${pEnd[0]},${pEnd[1]}?overview=full&geometries=geojson`);
         const data = await res.json();
-        currentRoute = data.routes[0];
+        const route = data.routes[0];
 
-        const distKm = currentRoute.distance / 1000;
-        const fCost = ((distKm * currentVehicle.conso) / 100) * currentVehicle.prix;
+        const distKm = route.distance / 1000;
+        const durationSec = route.duration;
         
+        // --- CALCULS PRÉCIS ---
+        const fCost = (distKm * currentVehicle.conso / 100) * currentVehicle.prixEssence;
+        const tollCost = distKm > 20 ? (distKm * 0.075) : 0; // Estimation péage : 0.075€/km si > 20km
+        const total = fCost + tollCost;
+
         document.getElementById('budget-panel').style.display = 'block';
         document.getElementById('v-name').innerText = currentVehicle.name;
         document.getElementById('fuel-cost').innerText = fCost.toFixed(2) + " €";
-        document.getElementById('total-cost').innerText = (fCost + (distKm > 50 ? distKm*0.12 : 0)).toFixed(2) + " €";
+        document.getElementById('toll-cost').innerText = tollCost.toFixed(2) + " €";
+        document.getElementById('total-cost').innerText = total.toFixed(2) + " €";
+
+        document.getElementById('nav-dist').innerText = distKm.toFixed(1) + " km";
+        const eta = new Date(); eta.setSeconds(eta.getSeconds() + durationSec);
+        document.getElementById('nav-time').innerText = eta.getHours() + ":" + eta.getMinutes().toString().padStart(2, '0');
 
         if (map.getSource('route')) map.removeSource('route');
-        map.addSource('route', { 'type': 'geojson', 'data': currentRoute.geometry });
-        map.addLayer({ 'id': 'r-line', 'type': 'line', 'source': 'route', 'paint': { 'line-color': '#8A2BE2', 'line-width': 7 } });
-        map.fitBounds(new maplibregl.LngLatBounds().extend(pStart).extend(pEnd), { padding: 100 });
+        map.addSource('route', { 'type': 'geojson', 'data': route.geometry });
+        map.addLayer({ 'id': 'r-line', 'type': 'line', 'source': 'route', 'paint': { 'line-color': '#8A2BE2', 'line-width': 6 } });
+        map.fitBounds(new maplibregl.LngLatBounds().extend(pStart).extend(pEnd), { padding: 80 });
         document.getElementById('go-nav-btn').classList.add('show');
     }
 
@@ -246,7 +236,7 @@
         document.getElementById('main-body').classList.add('active-nav');
         userMarkerEl.querySelector('.user-dot').style.display = 'none';
         userMarkerEl.querySelector('.user-arrow').style.display = 'block';
-        map.flyTo({ center: pStart, zoom: 19, pitch: 70 });
+        map.flyTo({ center: pStart, zoom: 18, pitch: 65, duration: 2000 });
     }
 
     function stopGuidance() {
@@ -257,4 +247,4 @@
     }
 </script>
 </body>
-</html> 
+</html>
